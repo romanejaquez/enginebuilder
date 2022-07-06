@@ -1,0 +1,55 @@
+import 'package:build_engine_webapp/helpers/enginebuilderfonts.dart';
+import 'package:build_engine_webapp/helpers/utils.dart';
+import 'package:build_engine_webapp/pages/createenginepage.dart';
+import 'package:build_engine_webapp/pages/landingpage.dart';
+import 'package:build_engine_webapp/pages/loadenginepage.dart';
+import 'package:build_engine_webapp/pages/mainpage.dart';
+import 'package:build_engine_webapp/pages/splash.dart';
+import 'package:build_engine_webapp/services/colorservice.dart';
+import 'package:build_engine_webapp/services/stepservice.dart';
+import 'package:build_engine_webapp/services/wheelsservice.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+void main() {
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => StepService(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => ColorService(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => WheelsService(),
+        )
+      ],
+      child: const BuildEngineApp()
+    )
+  );
+}
+
+class BuildEngineApp extends StatelessWidget {
+  const BuildEngineApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      navigatorKey: Utils.mainApp,
+      theme: ThemeData(
+        fontFamily: 'DK Lemon Yellow Sun'
+      ),
+      debugShowCheckedModeBanner: false,
+      initialRoute: "/",
+      home: CreateEngine()
+      // routes: {
+      //   "/" :(context) => const BuildEngineAppSplash(),
+      //   "/main": (context) => const BuildEngineAppMain(),
+      //   "/landing": (context) => const BuildEngineAppLanding(),
+      //   "/create-engine": (context) => const CreateEngine(),
+      //   "/load-engine": (context) => const LoadEngine()
+      // }
+    );
+  }
+}
