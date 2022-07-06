@@ -2,7 +2,9 @@ import 'package:build_engine_webapp/helpers/utils.dart';
 import 'package:build_engine_webapp/models/wheelitem.dart';
 import 'package:build_engine_webapp/services/colorservice.dart';
 import 'package:build_engine_webapp/services/wheelsservice.dart';
+import 'package:build_engine_webapp/widgets/chimneybuilder.dart';
 import 'package:build_engine_webapp/widgets/wheelsbuilder.dart';
+import 'package:build_engine_webapp/widgets/whistlebuilder.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -29,7 +31,9 @@ class EngineBuilderWidget extends StatelessWidget {
               );
             },
           ),
-          WheelsBuilder()
+          const WheelsBuilder(),
+          const WhistleBuilder(),
+          const ChimneyBuilder()
         ],
       ),
     );

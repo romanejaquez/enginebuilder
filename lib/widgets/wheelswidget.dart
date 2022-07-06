@@ -14,8 +14,6 @@ class WheelsWidget extends StatelessWidget {
     return Consumer<WheelsService>(
       builder: (context, service, child) {
 
-        ColorItem selectedColor = Provider.of<ColorService>(context, listen: false).selectedEngineColor as ColorItem;
-        
         return Container(
           margin: const EdgeInsets.only(left: 20),
           padding: const EdgeInsets.all(20),
@@ -46,8 +44,8 @@ class WheelsWidget extends StatelessWidget {
                     cursor: SystemMouseCursors.click,
                     child: Container(
                       margin: const EdgeInsets.only(top: 20, bottom: 20, left: 5, right: 5),
-                      width: 60,
-                      height: 60,
+                      width: 80,
+                      height: 80,
                       decoration: BoxDecoration(
                         border: Border.all(
                           width: 5,
@@ -56,11 +54,11 @@ class WheelsWidget extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10)
                       ),
                       child: Container(
-                        width: 50,
-                        height: 50,
+                        width: 70,
+                        height: 70,
                         alignment: Alignment.center,
                         child: Icon(wheelItem.icon,
-                          size: 50,
+                          size: 60,
                           color: Utils.mainPurple,
                         )
                       )

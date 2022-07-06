@@ -1,10 +1,14 @@
 import 'package:build_engine_webapp/helpers/actiontype.dart';
+import 'package:build_engine_webapp/helpers/chimneytype.dart';
 import 'package:build_engine_webapp/helpers/enginebuilderfonts.dart';
 import 'package:build_engine_webapp/helpers/enginecolors.dart';
 import 'package:build_engine_webapp/helpers/wheeltype.dart';
+import 'package:build_engine_webapp/helpers/whistletype.dart';
+import 'package:build_engine_webapp/models/chimneyitem.dart';
 import 'package:build_engine_webapp/models/coloritem.dart';
 import 'package:build_engine_webapp/models/step.model.dart';
 import 'package:build_engine_webapp/models/wheelitem.dart';
+import 'package:build_engine_webapp/models/whistleitem.dart';
 import 'package:flutter/material.dart';
 
 class Utils {
@@ -95,6 +99,72 @@ class Utils {
         imgValue: "multispoke",
         icon: EngineBuilderFonts.wheel3
       ),
+    ];
+  }
+
+  static List<WhistleItem> getWhistleItems() {
+    return [
+      WhistleItem(
+        type: WhistleType.air,
+        isSelected: false,
+        label: 'Air',
+        imgValue: 'air',
+        icon: EngineBuilderFonts.whistle1
+      ),
+      WhistleItem(
+        type: WhistleType.steam,
+        isSelected: false,
+        label: 'Steam',
+        imgValue: 'steam',
+        icon: EngineBuilderFonts.whistle2
+      ),
+      WhistleItem(
+        type: WhistleType.tugboat,
+        isSelected: false,
+        label: 'Tugboat',
+        imgValue: 'tugboat',
+        icon: EngineBuilderFonts.whistle3
+      )
+    ];
+  }
+
+  static List<ChimneyItem> getChimneys() {
+    return [
+      ChimneyItem(
+        type: ChimneyType.crowned,
+        isSelected: false,
+        label: 'Crowned',
+        imgValue: 'crowned',
+        icon: EngineBuilderFonts.chimney1
+      ),
+      ChimneyItem(
+        type: ChimneyType.oldStyle,
+        isSelected: false,
+        label: 'Old Style',
+        imgValue: 'old_style',
+        icon: EngineBuilderFonts.chimney2
+      ),
+      ChimneyItem(
+        type: ChimneyType.shortCrowned,
+        isSelected: false,
+        label: 'Short Crowned',
+        imgValue: 'short_crowned',
+        icon: EngineBuilderFonts.chimney3
+      ),
+      ChimneyItem(
+        type: ChimneyType.short,
+        isSelected: false,
+        label: 'Short',
+        imgValue: 'short',
+        icon: EngineBuilderFonts.chimney4
+      ),
+      ChimneyItem(
+        type: ChimneyType.wide,
+        isSelected: false,
+        label: 'Wide',
+        imgValue: 'wide',
+        icon: EngineBuilderFonts.chimney5
+      )
     ];
   }
 

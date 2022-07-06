@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class WheelsBuilder extends StatefulWidget {
-  WheelsBuilder({Key? key}) : super(key: key);
+  const WheelsBuilder({Key? key}) : super(key: key);
 
   @override
   State<WheelsBuilder> createState() => _WheelsBuilderState();
