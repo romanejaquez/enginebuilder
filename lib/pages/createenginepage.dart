@@ -1,5 +1,6 @@
 import 'package:build_engine_webapp/widgets/enginebuilderheader.dart';
 import 'package:build_engine_webapp/widgets/enginebuilderwidget.dart';
+import 'package:build_engine_webapp/widgets/namenumberinput.dart';
 import 'package:build_engine_webapp/widgets/sideactionswidget.dart';
 import 'package:build_engine_webapp/widgets/stepactionwidget.dart';
 import 'package:build_engine_webapp/widgets/stepswidget.dart';
@@ -33,6 +34,10 @@ class CreateEngine extends StatelessWidget {
           const Align(
             alignment: Alignment.centerRight,
             child: SideActionsWidget(),
+          ),
+          const Align(
+            alignment: Alignment.bottomCenter,
+            child: NameNumberInput()
           )
         ]
       )

@@ -6,6 +6,7 @@ import 'package:build_engine_webapp/services/stepservice.dart';
 import 'package:build_engine_webapp/services/wheelsservice.dart';
 import 'package:build_engine_webapp/widgets/chimneybuilder.dart';
 import 'package:build_engine_webapp/widgets/frontenginebuilder.dart';
+import 'package:build_engine_webapp/widgets/namenumberdisplay.dart';
 import 'package:build_engine_webapp/widgets/wheelsbuilder.dart';
 import 'package:build_engine_webapp/widgets/whistlebuilder.dart';
 import 'package:flutter/material.dart';
@@ -49,6 +50,7 @@ class EngineBuilderWidget extends StatelessWidget {
                         );
                       },
                     ),
+                    const NameNumberDisplay(),
                     const WheelsBuilder(),
                     const ChimneyBuilder(bottom: 519, left: 340),
                     Consumer<FacesService>(

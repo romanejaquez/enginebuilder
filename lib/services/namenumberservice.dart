@@ -8,6 +8,8 @@ class NameNumberService extends ChangeNotifier {
 
   List<NameNumberItem> nameNumberItems = Utils.getNameNumberItems();
   NameNumberItem? selectedNameNumberItem;
+  int engineNumber = 0;
+  String engineName = '';
 
   void setSelectedNameNumberItem(NameNumberItem item, BuildContext context) {
     selectedNameNumberItem = item;
@@ -15,6 +17,16 @@ class NameNumberService extends ChangeNotifier {
     StepService stepService = Provider.of<StepService>(context, listen: false);
     stepService.enableNextStep();
     
+    notifyListeners();
+  }
+
+  void setEngineNumber(int number) {
+    engineNumber = number;
+    notifyListeners();
+  }
+
+  void setEngineName(String name) {
+    engineName = name;
     notifyListeners();
   }
 }

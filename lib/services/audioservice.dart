@@ -9,15 +9,16 @@ class AudioService {
     whistleAudio.open(Audio('./assets/sounds/whistles/$whistle.mp3'));
   }
 
-  void playEngineAudio() {
+  void playEngineAudio() async {
 
-    if (engineAudio.isPlaying.hasValue && !engineAudio.isPlaying.valueOrNull!) {
-      engineAudio.open(
+    //if (engineAudio.isPlaying.hasValue && !engineAudio.isPlaying.value) {
+      await engineAudio.stop();
+      await engineAudio.open(
         Audio('./assets/sounds/steamengine.mp3'),
         volume: 0.2,
         loopMode: LoopMode.single
       );
-    }
+    //}
   }
 
   void toggleSound() {
