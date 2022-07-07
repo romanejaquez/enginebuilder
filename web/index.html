@@ -38,9 +38,27 @@
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
+  <style>
+    body {
+      background-color: #9400A7;
+    }
+
+    #launchicon {
+      position: absolute;
+      top: calc(50% - 30px);
+      left: calc(50% - 90px);
+    }
+
+    #launchicon > img {
+      width: 100px;
+      height: 60px;
+    }
+  </style>
 </head>
 <body>
-  <div id="loading">LOADING</div>
+  <div id="launchicon">
+    <img src="launchicon.png" />
+  </div>
   <script>
     window.addEventListener('load', function(ev) {
       // Download main.dart.js

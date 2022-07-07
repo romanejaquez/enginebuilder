@@ -62,14 +62,14 @@ class BuildEngineApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       initialRoute: "/",
-      home: CreateEngine()
-      // routes: {
-      //   "/" :(context) => const BuildEngineAppSplash(),
-      //   "/main": (context) => const BuildEngineAppMain(),
-      //   "/landing": (context) => const BuildEngineAppLanding(),
-      //   "/create-engine": (context) => const CreateEngine(),
-      //   "/load-engine": (context) => const LoadEngine()
-      // }
+      //home: CreateEngine()
+      routes: {
+        "/" :(context) => const BuildEngineAppSplash(),
+        "/main": (context) => const BuildEngineAppMain(),
+        "/landing": (context) => const BuildEngineAppLanding(),
+        "/create-engine": (context) => const CreateEngine(),
+        "/load-engine": (context) => const LoadEngine()
+      }
     );
   }
 }
