@@ -1,5 +1,6 @@
 import 'package:build_engine_webapp/helpers/utils.dart';
 import 'package:build_engine_webapp/models/wheelitem.dart';
+import 'package:build_engine_webapp/services/audioservice.dart';
 import 'package:build_engine_webapp/services/colorservice.dart';
 import 'package:build_engine_webapp/services/wheelsservice.dart';
 import 'package:flutter/material.dart';
@@ -39,6 +40,9 @@ class _WheelsBuilderState extends State<WheelsBuilder> with SingleTickerProvider
         builder: (context, wService, child) {
 
           if (wService.selectedWheelItem != null) {
+
+            AudioService audioService = Provider.of<AudioService>(context, listen: false);
+            audioService.playEngineAudio();
 
             return Consumer<ColorService>(
               builder: (context, cService, child) {

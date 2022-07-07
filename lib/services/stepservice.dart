@@ -17,6 +17,14 @@ class StepService extends ChangeNotifier {
       steps[currentStep!.index! + 1].isEnabled = true;
       notifyListeners();
     }
+
+    if ((currentStep!.index! == steps.length - 1) && steps.every((s) => s.isEnabled!)) {
+      for (var s in steps) {
+        s.isCompleted = true;
+      }
+
+      notifyListeners();
+    }
   }
 
   void setCurrentStep(StepItem step) {

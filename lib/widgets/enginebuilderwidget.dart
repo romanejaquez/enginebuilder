@@ -27,7 +27,6 @@ class EngineBuilderWidget extends StatelessWidget {
           width: 1020,
           height: 800,
           child: Stack(
-            fit: StackFit.expand,
             children: [
               Consumer<ColorService>(
                 builder: (context, cService, child) {
@@ -43,7 +42,6 @@ class EngineBuilderWidget extends StatelessWidget {
                 },
               ),
               const WheelsBuilder(),
-              const WhistleBuilder(),
               const ChimneyBuilder(bottom: 519, left: 340),
               Consumer<FacesService>(
                 builder: (context, fService, child) {
@@ -57,7 +55,8 @@ class EngineBuilderWidget extends StatelessWidget {
 
                   return const SizedBox();
                 },
-              )
+              ),
+              const WhistleBuilder()
             ],
           ),
         );

@@ -12,7 +12,7 @@ class SideActionsWidget extends StatelessWidget {
     return Consumer<StepService>(
       builder: (context, stepService, child) {
 
-        bool enableButtons = stepService.steps.every((s) => s.isEnabled!);
+        bool enableButtons = stepService.steps.every((s) => s.isCompleted!);
         Color buttonColorAndBorder = enableButtons ? Utils.mainPurple : Colors.grey.withOpacity(0.5);
 
         return Container(
