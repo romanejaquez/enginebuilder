@@ -23,20 +23,28 @@ class FrontEngineBuilder extends StatelessWidget {
                 String engineColor = colorService.selectedEngineColor != null ? Utils.getEngineColorAsString(colorService.selectedEngineColor!.engineColor!)
                   : 'none';
 
-                return Stack(
-                  clipBehavior: Clip.none,
-                  children: [
-                    Image.asset('./assets/imgs/bodyfront/$engineColor.png', width: 450),
-                    const ChimneyBuilder(bottom: 420, left: 10),
-                    Positioned(
-                      top: 122,
-                      left: 8,
-                      right: 0,
-                      child: Image.asset(
-                        './assets/imgs/faces/${facesService.selectedEngineFace!.imgName}.png', 
-                        width: 210, height: 210)
+                return Container(
+                  margin: const EdgeInsets.only(top: 30),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Stack(
+                        clipBehavior: Clip.none,
+                        children: [
+                          Image.asset('./assets/imgs/bodyfront/$engineColor.png', width: 450),
+                          const ChimneyBuilder(bottom: 420, left: 10),
+                          Positioned(
+                            top: 122,
+                            left: 8,
+                            right: 0,
+                            child: Image.asset(
+                              './assets/imgs/faces/${facesService.selectedEngineFace!.imgName}.png', 
+                              width: 210, height: 210)
+                            ),
+                        ]
                       ),
-                  ]
+                    ],
+                  ),
                 );
               },
             );

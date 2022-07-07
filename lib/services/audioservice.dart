@@ -11,7 +11,7 @@ class AudioService {
 
   void playEngineAudio() {
 
-    if (!engineAudio.isPlaying.value) {
+    if (engineAudio.isPlaying.hasValue && !engineAudio.isPlaying.valueOrNull!) {
       engineAudio.open(
         Audio('./assets/sounds/steamengine.mp3'),
         volume: 0.2,

@@ -5,6 +5,7 @@ import 'package:build_engine_webapp/pages/landingpage.dart';
 import 'package:build_engine_webapp/pages/loadenginepage.dart';
 import 'package:build_engine_webapp/pages/mainpage.dart';
 import 'package:build_engine_webapp/pages/splash.dart';
+import 'package:build_engine_webapp/services/actionsservice.dart';
 import 'package:build_engine_webapp/services/audioservice.dart';
 import 'package:build_engine_webapp/services/chimneyservice.dart';
 import 'package:build_engine_webapp/services/colorservice.dart';
@@ -22,6 +23,9 @@ void main() {
       providers: [
         Provider(
           create: (_) => AudioService(),
+        ),
+        Provider(
+          create: (_) => ActionsService(),
         ),
         ChangeNotifierProvider(
           create: (_) => StepService(),

@@ -20,43 +20,54 @@ class EngineBuilderWidget extends StatelessWidget {
       builder: (context, stepService, child) {
         
         if (stepService.currentStep!.stepNumber ==  6) {
-          return const FrontEngineBuilder();
+          return RepaintBoundary(
+            key: Utils.imgGlobalKey,
+            child: const FrontEngineBuilder()
+          );
         }
-
-        return SizedBox(
-          width: 1020,
-          height: 800,
-          child: Stack(
+    
+        return RepaintBoundary(
+          key: Utils.imgGlobalKey,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
-              Consumer<ColorService>(
-                builder: (context, cService, child) {
-
-                  String engineColor = cService.selectedEngineColor != null ? Utils.getEngineColorAsString(cService.selectedEngineColor!.engineColor!)
-                  : 'none';
-
-                  return Center(
-                    child: Image.asset('./assets/imgs/body/$engineColor.png',
-                      width: 830,
+              SizedBox(
+                width: 1020,
+                height: 800,
+                child: Stack(
+                  children: [
+                    Consumer<ColorService>(
+                      builder: (context, cService, child) {
+                
+                        String engineColor = cService.selectedEngineColor != null ? Utils.getEngineColorAsString(cService.selectedEngineColor!.engineColor!)
+                        : 'none';
+                
+                        return Center(
+                          child: Image.asset('./assets/imgs/body/$engineColor.png',
+                            width: 830,
+                          ),
+                        );
+                      },
                     ),
-                  );
-                },
+                    const WheelsBuilder(),
+                    const ChimneyBuilder(bottom: 519, left: 340),
+                    Consumer<FacesService>(
+                      builder: (context, fService, child) {
+                        
+                        if (fService.selectedEngineFace != null && fService.selectedEngineFace!.imgName != 'none') {
+                          return Positioned(
+                            top: 173,
+                            left: 80,
+                            child: Image.asset('./assets/imgs/faces/${fService.selectedEngineFace!.imgName}_side.png'));
+                        }
+                
+                        return const SizedBox();
+                      },
+                    ),
+                    const WhistleBuilder()
+                  ],
+                ),
               ),
-              const WheelsBuilder(),
-              const ChimneyBuilder(bottom: 519, left: 340),
-              Consumer<FacesService>(
-                builder: (context, fService, child) {
-                  
-                  if (fService.selectedEngineFace != null && fService.selectedEngineFace!.imgName != 'none') {
-                    return Positioned(
-                      top: 173,
-                      left: 80,
-                      child: Image.asset('./assets/imgs/faces/${fService.selectedEngineFace!.imgName}_side.png'));
-                  }
-
-                  return const SizedBox();
-                },
-              ),
-              const WhistleBuilder()
             ],
           ),
         );

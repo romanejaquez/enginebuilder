@@ -1,5 +1,6 @@
 import 'package:build_engine_webapp/helpers/utils.dart';
 import 'package:build_engine_webapp/models/sideoption.dart';
+import 'package:build_engine_webapp/services/actionsservice.dart';
 import 'package:build_engine_webapp/services/stepservice.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -9,6 +10,9 @@ class SideActionsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    ActionsService actionsService = Provider.of<ActionsService>(context, listen: false);
+
     return Consumer<StepService>(
       builder: (context, stepService, child) {
 
@@ -25,7 +29,9 @@ class SideActionsWidget extends StatelessWidget {
               SideOption option = Utils.getSideOptions()[index];
 
               return GestureDetector(
-                onTap: enableButtons ? () {} : null,
+                onTap: enableButtons ? () {
+                  actionsService.performAction(option.type!);
+                } : null,
                 child: MouseRegion(
                   cursor: enableButtons ? SystemMouseCursors.click : SystemMouseCursors.forbidden,
                   child: Column(

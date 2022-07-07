@@ -18,6 +18,7 @@ import 'package:flutter/material.dart';
 class Utils {
 
   static GlobalKey<NavigatorState> mainApp = GlobalKey<NavigatorState>();
+  static GlobalKey imgGlobalKey = GlobalKey();
   static const Color mainPurple = Color(0xFF9400A7);
   static const Color secondaryPurple = Color(0xFF4A0054);
 
