@@ -13,10 +13,10 @@ class StepService extends ChangeNotifier {
   }
 
   void enableNextStep() {
-    if (currentStep != null && currentStep!.index! < steps.length) {
+    if (currentStep != null && currentStep!.index! < steps.length - 1) {
       steps[currentStep!.index! + 1].isEnabled = true;
+      notifyListeners();
     }
-    notifyListeners();
   }
 
   void setCurrentStep(StepItem step) {

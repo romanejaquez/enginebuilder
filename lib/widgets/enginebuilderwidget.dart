@@ -1,8 +1,11 @@
 import 'package:build_engine_webapp/helpers/utils.dart';
 import 'package:build_engine_webapp/models/wheelitem.dart';
 import 'package:build_engine_webapp/services/colorservice.dart';
+import 'package:build_engine_webapp/services/facesservice.dart';
+import 'package:build_engine_webapp/services/stepservice.dart';
 import 'package:build_engine_webapp/services/wheelsservice.dart';
 import 'package:build_engine_webapp/widgets/chimneybuilder.dart';
+import 'package:build_engine_webapp/widgets/frontenginebuilder.dart';
 import 'package:build_engine_webapp/widgets/wheelsbuilder.dart';
 import 'package:build_engine_webapp/widgets/whistlebuilder.dart';
 import 'package:flutter/material.dart';
@@ -13,29 +16,52 @@ class EngineBuilderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 1020,
-      height: 800,
-      child: Stack(
-        children: [
-          Consumer<ColorService>(
-            builder: (context, cService, child) {
+    return Consumer<StepService>(
+      builder: (context, stepService, child) {
+        
+        if (stepService.currentStep!.stepNumber ==  6) {
+          return const FrontEngineBuilder();
+        }
 
-              String engineColor = cService.selectedEngineColor != null ? Utils.getEngineColorAsString(cService.selectedEngineColor!.engineColor!)
-              : 'none';
+        return SizedBox(
+          width: 1020,
+          height: 800,
+          child: Stack(
+            fit: StackFit.expand,
+            children: [
+              Consumer<ColorService>(
+                builder: (context, cService, child) {
 
-              return Center(
-                child: Image.asset('./assets/imgs/body/$engineColor.png',
-                  width: 800,
-                ),
-              );
-            },
+                  String engineColor = cService.selectedEngineColor != null ? Utils.getEngineColorAsString(cService.selectedEngineColor!.engineColor!)
+                  : 'none';
+
+                  return Center(
+                    child: Image.asset('./assets/imgs/body/$engineColor.png',
+                      width: 830,
+                    ),
+                  );
+                },
+              ),
+              const WheelsBuilder(),
+              const WhistleBuilder(),
+              const ChimneyBuilder(bottom: 519, left: 340),
+              Consumer<FacesService>(
+                builder: (context, fService, child) {
+                  
+                  if (fService.selectedEngineFace != null && fService.selectedEngineFace!.imgName != 'none') {
+                    return Positioned(
+                      top: 173,
+                      left: 80,
+                      child: Image.asset('./assets/imgs/faces/${fService.selectedEngineFace!.imgName}_side.png'));
+                  }
+
+                  return const SizedBox();
+                },
+              )
+            ],
           ),
-          const WheelsBuilder(),
-          const WhistleBuilder(),
-          const ChimneyBuilder()
-        ],
-      ),
+        );
+      }
     );
   }
 }

@@ -40,7 +40,7 @@ class ColorWidget extends StatelessWidget {
                   child: MouseRegion(
                     cursor: SystemMouseCursors.click,
                     child: Container(
-                      margin: const EdgeInsets.only(top: 20, bottom: 20, left: 5, right: 5),
+                      margin: const EdgeInsets.only(top: 5, bottom: 5, left: 5, right: 5),
                       width: 50,
                       height: 50,
                       decoration: BoxDecoration(

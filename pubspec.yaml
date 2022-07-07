@@ -68,6 +68,8 @@ flutter:
     - assets/imgs/chimney/
     - assets/imgs/chimneyfront/
     - assets/imgs/whistles/
+    - assets/imgs/bodyfront/
+    - assets/imgs/faces/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -88,6 +90,12 @@ flutter:
     - family: enginebuilder
       fonts:
         - asset: assets/fonts/enginebuilder.ttf
+    - family: cowboyjunk
+      fonts:
+        - asset: assets/fonts/cowboyjunk.otf
+    - family: Product Sans Regular
+      fonts:
+        - asset: assets/fonts/Product Sans Regular.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #

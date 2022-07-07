@@ -1,5 +1,6 @@
 import 'package:build_engine_webapp/widgets/enginebuilderheader.dart';
 import 'package:build_engine_webapp/widgets/enginebuilderwidget.dart';
+import 'package:build_engine_webapp/widgets/sideactionswidget.dart';
 import 'package:build_engine_webapp/widgets/stepactionwidget.dart';
 import 'package:build_engine_webapp/widgets/stepswidget.dart';
 import 'package:flutter/material.dart';
@@ -29,6 +30,10 @@ class CreateEngine extends StatelessWidget {
           const Center(
             child: EngineBuilderWidget(),
           ),
+          const Align(
+            alignment: Alignment.centerRight,
+            child: SideActionsWidget(),
+          )
         ]
       )
     );

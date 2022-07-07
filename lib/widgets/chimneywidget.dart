@@ -26,7 +26,7 @@ class ChimneyWidget extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Text('WHISTLES',
+              const Text('CHIMNEYS',
                 style: TextStyle(color: Utils.mainPurple, fontSize: 20)
               ),
               const SizedBox(height: 20),
@@ -41,7 +41,7 @@ class ChimneyWidget extends StatelessWidget {
                   child: MouseRegion(
                     cursor: SystemMouseCursors.click,
                     child: Container(
-                      margin: const EdgeInsets.only(top: 20, bottom: 20, left: 5, right: 5),
+                      margin: const EdgeInsets.only(top: 5, bottom: 5, left: 5, right: 5),
                       width: 80,
                       height: 80,
                       decoration: BoxDecoration(

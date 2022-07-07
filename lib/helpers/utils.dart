@@ -2,10 +2,14 @@ import 'package:build_engine_webapp/helpers/actiontype.dart';
 import 'package:build_engine_webapp/helpers/chimneytype.dart';
 import 'package:build_engine_webapp/helpers/enginebuilderfonts.dart';
 import 'package:build_engine_webapp/helpers/enginecolors.dart';
+import 'package:build_engine_webapp/helpers/sideactiontype.dart';
 import 'package:build_engine_webapp/helpers/wheeltype.dart';
 import 'package:build_engine_webapp/helpers/whistletype.dart';
 import 'package:build_engine_webapp/models/chimneyitem.dart';
 import 'package:build_engine_webapp/models/coloritem.dart';
+import 'package:build_engine_webapp/models/enginefaceitem.dart';
+import 'package:build_engine_webapp/models/namenumberitem.dart';
+import 'package:build_engine_webapp/models/sideoption.dart';
 import 'package:build_engine_webapp/models/step.model.dart';
 import 'package:build_engine_webapp/models/wheelitem.dart';
 import 'package:build_engine_webapp/models/whistleitem.dart';
@@ -76,6 +80,61 @@ class Utils {
     ];
   }
 
+  static List<SideOption> getSideOptions() {
+    return [
+      SideOption(
+        label: 'SAVE',
+        type: SideActionType.save,
+        icon: Icons.favorite
+      ),
+      SideOption(
+        label: 'DOWNLOAD',
+        type: SideActionType.download,
+        icon: Icons.cloud_download
+      ),
+      SideOption(
+        label: 'DELETE',
+        type: SideActionType.delete,
+        icon: Icons.delete
+      )
+    ];
+  }
+
+  static List<EngineFaceItem> getEngineFaces() {
+    return [
+      EngineFaceItem(
+        icon: EngineBuilderFonts.face1,
+        isSelected: false,
+        imgName: 'earnest'
+      ),
+      EngineFaceItem(
+        icon: EngineBuilderFonts.face2,
+        isSelected: false,
+        imgName: 'plucky'
+      ),
+      EngineFaceItem(
+        icon: EngineBuilderFonts.face3,
+        isSelected: false,
+        imgName: 'sassy'
+      ),
+      EngineFaceItem(
+        icon: EngineBuilderFonts.face5,
+        isSelected: false,
+        imgName: 'smarty_glasses'
+      ),
+      EngineFaceItem(
+        icon: EngineBuilderFonts.face6,
+        isSelected: false,
+        imgName: 'smiley'
+      ),
+      EngineFaceItem(
+        icon: EngineBuilderFonts.face7,
+        isSelected: false,
+        imgName: 'spunky'
+      )
+    ];
+  }
+
   static List<WheelItem> getWheelItems() {
     return [
       WheelItem(
@@ -98,6 +157,26 @@ class Utils {
         label: "Multi-Spoke",
         imgValue: "multispoke",
         icon: EngineBuilderFonts.wheel3
+      ),
+    ];
+  }
+
+  static List<NameNumberItem> getNameNumberItems() {
+    return [
+      NameNumberItem(
+        isSelected: false,
+        label: 'AA',
+        fontName: 'cowboyjunk'
+      ),
+      NameNumberItem(
+        isSelected: false,
+        label: 'AA',
+        fontName: 'Product Sans Regular'
+      ),
+      NameNumberItem(
+        isSelected: false,
+        label: 'AA',
+        fontName: 'DK Lemon Yellow Sun'
       ),
     ];
   }

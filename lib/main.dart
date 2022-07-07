@@ -7,6 +7,8 @@ import 'package:build_engine_webapp/pages/mainpage.dart';
 import 'package:build_engine_webapp/pages/splash.dart';
 import 'package:build_engine_webapp/services/chimneyservice.dart';
 import 'package:build_engine_webapp/services/colorservice.dart';
+import 'package:build_engine_webapp/services/facesservice.dart';
+import 'package:build_engine_webapp/services/namenumberservice.dart';
 import 'package:build_engine_webapp/services/stepservice.dart';
 import 'package:build_engine_webapp/services/wheelsservice.dart';
 import 'package:build_engine_webapp/services/whistleservice.dart';
@@ -31,6 +33,12 @@ void main() {
         ),
         ChangeNotifierProvider(
           create: (_) => ChimneyService(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => NameNumberService(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => FacesService(),
         )
       ],
       child: const BuildEngineApp()
