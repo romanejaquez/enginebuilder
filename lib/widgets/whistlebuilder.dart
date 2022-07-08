@@ -14,17 +14,17 @@ class WhistleBuilder extends StatelessWidget {
         if (wService.selectedWhistle != null) {
 
           return Positioned(
-            bottom: 513,
-            left: -30,
-            right: 0,
+            bottom: 524,
+            left: 460,
             child: GestureDetector(
               onTap: () {
                 AudioService audioService = Provider.of<AudioService>(context, listen: false);
                 audioService.playWhistleAudio(wService.selectedWhistle!.imgValue!);
               },
               child: Image.asset('./assets/imgs/whistles/${wService.selectedWhistle!.imgValue}.png',
-                width: 140,
-                height: 140,
+                width: 60,
+                height: 130,
+                fit: BoxFit.contain
               ),
             ),
           );

@@ -8,7 +8,7 @@ class NameNumberService extends ChangeNotifier {
 
   List<NameNumberItem> nameNumberItems = Utils.getNameNumberItems();
   NameNumberItem? selectedNameNumberItem;
-  int engineNumber = 0;
+  int? engineNumber;
   String engineName = '';
 
   void setSelectedNameNumberItem(NameNumberItem item, BuildContext context) {

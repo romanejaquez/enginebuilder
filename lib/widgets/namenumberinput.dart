@@ -2,6 +2,7 @@ import 'package:build_engine_webapp/helpers/utils.dart';
 import 'package:build_engine_webapp/services/namenumberservice.dart';
 import 'package:build_engine_webapp/services/stepservice.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 class NameNumberInput extends StatefulWidget {
@@ -34,8 +35,6 @@ class _NameNumberInputState extends State<NameNumberInput> {
   @override
   Widget build(BuildContext context) {
 
-    NameNumberService nnService = Provider.of<NameNumberService>(context, listen: false);
-
     return Consumer<StepService>(
       builder: (context, stepService, child) {
 
@@ -48,7 +47,7 @@ class _NameNumberInputState extends State<NameNumberInput> {
 
                 return Container(
                   margin: const EdgeInsets.only(bottom: 40),
-                  padding: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(20),
@@ -71,8 +70,11 @@ class _NameNumberInputState extends State<NameNumberInput> {
                             controller: numberInput,
                             keyboardType: TextInputType.number,
                             maxLength: 2,
-                            style: TextStyle(fontFamily: 'Product Sans Regular', fontSize: 20),
-                            decoration: InputDecoration(
+                            style: const TextStyle(fontFamily: 'Product Sans Regular', fontSize: 20),
+                            inputFormatters: <TextInputFormatter>[
+                              FilteringTextInputFormatter.digitsOnly
+                            ],
+                            decoration: const InputDecoration(
                               label: Text("Number", style: TextStyle(fontSize: 15)),
                               hintStyle: TextStyle(fontFamily: 'Product Sans Regular', fontSize: 15),
                               helperStyle: TextStyle(fontFamily: 'Product Sans Regular', fontSize: 15)
@@ -88,8 +90,8 @@ class _NameNumberInputState extends State<NameNumberInput> {
                             },
                             controller: nameInput,
                             maxLength: 10,
-                            style: TextStyle(fontFamily: 'Product Sans Regular', fontSize: 20),
-                            decoration: InputDecoration(
+                            style: const TextStyle(fontFamily: 'Product Sans Regular', fontSize: 20),
+                            decoration: const InputDecoration(
                               label: Text("Name", style: TextStyle(fontSize: 15)),
                               hintStyle: TextStyle(fontFamily: 'Product Sans Regular', fontSize: 15),
                               helperStyle: TextStyle(fontFamily: 'Product Sans Regular', fontSize: 15)

@@ -18,19 +18,31 @@ class NameNumberDisplay extends StatelessWidget {
             clipBehavior: Clip.none,
             children: [
               Positioned(
-                top: 380,
-                left: 220,
-                child: Text(nnService.engineNumber.toString(),
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontFamily: fontFamilyName, fontSize: 40, color: Colors.white)
+                top: 360,
+                left: 190,
+                child: Container(
+                  alignment: Alignment.center,
+                  width: 100,
+                  height: 100,
+                  color: Colors.transparent,
+                  child: Text(nnService.engineNumber != null ? nnService.engineNumber!.toString() : '',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontFamily: fontFamilyName, fontSize: 40, color: Colors.white)
+                  )
                 ),
               ),
               Positioned(
-                top: 380,
-                left: 420,
-                child: Text(nnService.engineName,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontFamily: fontFamilyName, fontSize: 40, color: Colors.white)
+                top: 360,
+                left: 380,
+                child: Container(
+                  alignment: Alignment.center,
+                  width: 170,
+                  height: 100,
+                  color: Colors.transparent,
+                  child: Text(nnService.engineName,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontFamily: fontFamilyName, fontSize: 35, color: Colors.white)
+                  ),
                 ),
               )
             ],
