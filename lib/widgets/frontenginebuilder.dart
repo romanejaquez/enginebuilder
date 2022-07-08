@@ -32,7 +32,7 @@ class FrontEngineBuilder extends StatelessWidget {
                         clipBehavior: Clip.none,
                         children: [
                           Image.asset('./assets/imgs/bodyfront/$engineColor.png', width: 450),
-                          const ChimneyBuilder(bottom: 420, left: 10),
+                          const ChimneyBuilder(bottom: 420, left: 157),
                           Positioned(
                             top: 122,
                             left: 8,

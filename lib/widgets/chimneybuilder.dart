@@ -17,14 +17,30 @@ class ChimneyBuilder extends StatelessWidget {
 
         if (cService.selectedChimney != null) {
 
+          double scaleValue = 1.0;
+
           return Positioned(
             bottom: bottom,
             left: left,
-            right: 0,
-            child: Image.asset('./assets/imgs/chimney/${cService.selectedChimney!.imgValue}.png',
-              width: 140,
-              height: 140,
-            ),
+            child: StatefulBuilder(
+              builder: (context, setState) {
+                return MouseRegion(
+                  onEnter: (event) => setState(() { scaleValue = 1.125; }),
+                  onExit: (event) => setState(() { scaleValue = 1.0; }),
+                  cursor: SystemMouseCursors.click,
+                  child: AnimatedScale(
+                    scale: scaleValue,
+                    alignment: Alignment.bottomCenter,
+                    duration: const Duration(milliseconds: 250),
+                    curve: Curves.easeInOut,
+                    child: Image.asset('./assets/imgs/chimney/${cService.selectedChimney!.imgValue}.png',
+                      width: 140,
+                      height: 140,
+                    ),
+                  )
+                );
+              }
+            )
           );
         }
 

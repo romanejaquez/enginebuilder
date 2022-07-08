@@ -12,6 +12,7 @@ class WhistleBuilder extends StatelessWidget {
       builder: (context, wService, child) {
 
         if (wService.selectedWhistle != null) {
+          double scaleValue = 1.0;
 
           return Positioned(
             bottom: 524,
@@ -21,10 +22,25 @@ class WhistleBuilder extends StatelessWidget {
                 AudioService audioService = Provider.of<AudioService>(context, listen: false);
                 audioService.playWhistleAudio(wService.selectedWhistle!.imgValue!);
               },
-              child: Image.asset('./assets/imgs/whistles/${wService.selectedWhistle!.imgValue}.png',
-                width: 60,
-                height: 130,
-                fit: BoxFit.contain
+              child: StatefulBuilder(
+                  builder: (context, setState) {
+                  return MouseRegion(
+                    onEnter: (event) => setState(() { scaleValue = 1.125; }),
+                    onExit: (event) => setState(() { scaleValue = 1.0; }),
+                    cursor: SystemMouseCursors.click,
+                    child: AnimatedScale(
+                      scale: scaleValue,
+                      alignment: Alignment.bottomCenter,
+                      duration: const Duration(milliseconds: 250),
+                      curve: Curves.easeInOut,
+                      child: Image.asset('./assets/imgs/whistles/${wService.selectedWhistle!.imgValue}.png',
+                        width: 60,
+                        height: 130,
+                        fit: BoxFit.contain
+                      ),
+                    ),
+                  );
+                }
               ),
             ),
           );

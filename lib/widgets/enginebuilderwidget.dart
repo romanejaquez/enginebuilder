@@ -52,7 +52,6 @@ class EngineBuilderWidget extends StatelessWidget {
                     ),
                     const NameNumberDisplay(),
                     const WheelsBuilder(),
-                    const ChimneyBuilder(bottom: 519, left: 340),
                     Consumer<FacesService>(
                       builder: (context, fService, child) {
                         
@@ -66,7 +65,8 @@ class EngineBuilderWidget extends StatelessWidget {
                         return const SizedBox();
                       },
                     ),
-                    const WhistleBuilder()
+                    const WhistleBuilder(),
+                    const ChimneyBuilder(bottom: 519, left: 600),
                   ],
                 ),
               ),
