@@ -12,24 +12,31 @@ import 'package:build_engine_webapp/widgets/whistlebuilder.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class EngineBuilderWidget extends StatelessWidget {
+class EngineBuilderWidget extends StatefulWidget {
   const EngineBuilderWidget({Key? key}) : super(key: key);
 
   @override
+  State<EngineBuilderWidget> createState() => _EngineBuilderWidgetState();
+}
+
+class _EngineBuilderWidgetState extends State<EngineBuilderWidget> {
+  GlobalKey globalKey = GlobalKey();
+
+  @override
   Widget build(BuildContext context) {
-    return Consumer<StepService>(
-      builder: (context, stepService, child) {
-        
-        if (stepService.currentStep!.stepNumber ==  6) {
-          return RepaintBoundary(
-            key: Utils.imgGlobalKey,
-            child: const FrontEngineBuilder()
-          );
-        }
-    
-        return RepaintBoundary(
-          key: Utils.imgGlobalKey,
-          child: Column(
+
+    Utils.imgGlobalKey = globalKey;
+
+    return RepaintBoundary(
+      key: globalKey,
+      child: Consumer<StepService>(
+        builder: (context, stepService, child) {
+          
+          if (stepService.currentStep!.stepNumber ==  6) {
+            return const FrontEngineBuilder();
+          }
+      
+          return Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               SizedBox(
@@ -71,9 +78,9 @@ class EngineBuilderWidget extends StatelessWidget {
                 ),
               ),
             ],
-          ),
-        );
-      }
+          );
+        }
+      ),
     );
   }
 }

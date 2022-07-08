@@ -27,8 +27,8 @@ class ActionsService {
   void exportEngineAsImage() async {
     
     try {
-      RenderRepaintBoundary boundary = Utils.imgGlobalKey.currentContext!.findRenderObject() as RenderRepaintBoundary;
-      ui.Image image = await boundary.toImage(pixelRatio: 3.0);
+      RenderRepaintBoundary boundary = Utils.imgGlobalKey!.currentContext!.findRenderObject() as RenderRepaintBoundary;
+      ui.Image image = await boundary.toImage(pixelRatio: 2.0);
       ByteData? byteData =
           await image.toByteData(format: ui.ImageByteFormat.png);
       var pngBytes = byteData!.buffer.asUint8List();
