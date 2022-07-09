@@ -3,7 +3,7 @@ import 'package:build_engine_webapp/helpers/utils.dart';
 import 'package:flutter/rendering.dart';
 import 'dart:convert';
 // ignore: avoid_web_libraries_in_flutter
-//import 'dart:html' as html;
+import 'dart:html' as html;
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
@@ -26,7 +26,7 @@ class ActionsService {
 
   void exportEngineAsImage() async {
     //flutter run -d chrome --dart-define=BROWSER_IMAGE_DECODING_ENABLED=false --release
-    /*try {
+    try {
       RenderRepaintBoundary boundary = Utils.imgGlobalKey.currentContext!.findRenderObject() as RenderRepaintBoundary;
       ui.Image image = await boundary.toImage(pixelRatio: 2.0);
       ByteData? byteData =
@@ -43,12 +43,12 @@ class ActionsService {
       anchor.remove();
     } catch (e) {
       //
-    }*/
+    }
   }
 
   void saveEngine() {
     // saves to local storage on your browser
-    //html.window.localStorage['fromflutter'] = '{ "hello": "world }';
+    html.window.localStorage['fromflutter'] = '{ "hello": "world }';
   }
 
   void deleteEngine() {}
