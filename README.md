@@ -2,6 +2,25 @@
 
 A fun and cool Flutter Web App for building a tank engine!
 
+### Features:
+- Creating an engine using 6 easy steps:
+  - Select the color
+  - Select the wheel type
+  - Select the whistle type
+  - Select the chimney type
+  - Add a name and a number
+  - Select the face
+
+- Exporting built engine as PNG
+- Delete Engine (TBD)
+- Save Engine (TBD)
+- Load Existing Engine (TBD)
+
+All assets were created by myself. This app was built for my son who loves steam engines and is a big fan of Thomas the Tank Engine series (me too!).
+
+You can follow me on [Twitter](https://twitter.com/drcoderz) and stay tuned for more cool Flutter apps coming my way!
+Thanks
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
